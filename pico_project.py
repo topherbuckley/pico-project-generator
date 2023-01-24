@@ -1134,7 +1134,7 @@ def generateProjectFiles(projectPath, projectName, sdkPath, projects, debugger):
                   '  "version": "0.2.0",\n'
                   '  "configurations": [\n'
                   '    {\n'
-                  '      "name": "Cortex Debug",\n'
+                  '      "name": "Pico Debug",\n'
                   '      "cwd": "${workspaceRoot}",\n'
                   '      "executable": "${command:cmake.launchTargetPath}",\n'
                   '      "request": "launch",\n'
@@ -1143,16 +1143,10 @@ def generateProjectFiles(projectPath, projectName, sdkPath, projects, debugger):
                   '      "gdbPath": "gdb-multiarch",\n'
                   '      "device": "RP2040",\n'
                   '      "configFiles": [\n' + \
-                  '        "interface/' + deb + '",\n' + \
+                  '        "interface/cmsis-dap.cfg''",\n' + \
                   '        "target/rp2040.cfg"\n' + \
                   '        ],\n' +  \
                   '      "svdFile": "${env:PICO_SDK_PATH}/src/rp2040/hardware_regs/rp2040.svd",\n'
-                  '      "runToEntryPoint": "main",\n'
-                  '      // Give restart the same functionality as runToEntryPoint - main\n'
-                  '      "postRestartCommands": [\n'
-                  '          "break main",\n'
-                  '          "continue"\n'
-                  '      ]\n'
                   '    }\n'
                   '  ]\n'
                   '}\n')
