@@ -1354,7 +1354,7 @@ def DoEverything(parent, params):
             cmakeCmd = 'cmake -DCMAKE_BUILD_TYPE=Debug -G "NMake Makefiles" ..'
             makeCmd = 'nmake '
     else:
-        cmakeCmd = 'cmake -DCMAKE_BUILD_TYPE=Debug ..'
+        cmakeCmd = '/usr/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/arm-none-eabi-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/arm-none-eabi-g++ -S'+str(projectPath)+' -B'+str(projectPath)+'/build -G Ninja'
         makeCmd = 'make -j' + str(cpus)
 
     if params['wantGUI']:
